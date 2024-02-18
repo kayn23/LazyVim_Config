@@ -24,11 +24,11 @@ vim.keymap.del("n", "<c-/>")
 map("n", "<leader>ft", lazyterm, { desc = "Open Terminal" })
 map("n", "<c-/>", lazyterm, { desc = "Open Terminal" })
 
-del("n", "<leader>wd")
-map("n", "<leader>wc", "<C-W>c", { desc = "Delete window", remap = true })
+-- del("n", "<leader>wd")
+-- map("n", "<leader>wc", "<C-W>c", { desc = "Delete window", remap = true })
 
-del("n", "<leader><tab>d")
-map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
+-- del("n", "<leader><tab>d")
+-- map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 
 -- normal keymaps
 map({ "n", "s", "x" }, "<Leader>ww", "<cmd>w<cr><esc>", { desc = "Save file" })
@@ -45,5 +45,10 @@ if Util.has("Comment.nvim") then
   map("n", "<Leader>/", function()
     require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1)
   end, { desc = "Toggle comment line" })
-  map("v", "<Leader>/", function() end, { desc = "Toggle comment for selection" })
+  map(
+    "v",
+    "<Leader>/",
+    "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
+    { desc = "Toggle comment for selection" }
+  )
 end
