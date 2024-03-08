@@ -3,7 +3,7 @@
 -- Add any additional keymaps here
 local discipline = require("custom.discipline")
 
-discipline.cowboy()
+-- discipline.cowboy()
 
 local Util = require("lazyvim.util")
 local map = vim.keymap.set
@@ -33,9 +33,9 @@ map("n", "<c-/>", lazyterm, { desc = "Open Terminal" })
 -- normal keymaps
 map({ "n", "s", "x" }, "<Leader>ww", "<cmd>w<cr><esc>", { desc = "Save file" })
 map("n", "<leader>k", vim.lsp.buf.hover, { desc = "hover info on cursor" })
+map("n", "<leader>uu", ":w<CR>")
 
 -- insert keymaps
-map("i", "jj", "<esc>")
 
 -- visual keymaps
 map("v", "yy", '"+y')
@@ -52,3 +52,12 @@ if Util.has("Comment.nvim") then
     { desc = "Toggle comment for selection" }
   )
 end
+
+local cliff = require("cliff")
+local opts = { noremap = true, silent = true, expr = true }
+vim.keymap.set("n", "<c-j>", cliff.go_down, opts)
+vim.keymap.set("n", "<c-k>", cliff.go_up, opts)
+vim.keymap.set("v", "<c-j>", cliff.go_down, opts)
+vim.keymap.set("v", "<c-k>", cliff.go_up, opts)
+vim.keymap.set("o", "<c-j>", cliff.go_down, opts)
+vim.keymap.set("o", "<c-k>", cliff.go_up, opts)

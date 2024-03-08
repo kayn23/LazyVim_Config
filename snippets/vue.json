@@ -1,0 +1,17 @@
+{
+  "setup": {
+    "prefix": "tst",
+    "body": [
+      "<script lang=\"ts\" setup>",
+      "\t$1",
+      "</script>",
+      "<template>",
+      "\t$2",
+      "</template>",
+      "<style lang=\"sass\">",
+      "\t$3",
+      "</style>"
+    ],
+    "description": "Vue3 ts base template"
+  }
+}

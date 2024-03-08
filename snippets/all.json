@@ -1,0 +1,7 @@
+{
+  "arrow_function": {
+    "prefix": "afn",
+    "body": ["($1)$2 => {", "\t$3", "}"],
+    "description": "js arrow functino"
+  }
+}
