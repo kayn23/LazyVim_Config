@@ -8,21 +8,19 @@ local discipline = require("custom.discipline")
 local Util = require("lazyvim.util")
 local map = vim.keymap.set
 local del = vim.keymap.del
+local set = Util.safe_keymap_set
 
--- terminal
-local lazyterm = function()
-  Util.terminal(nil, {
-    cwd = Util.root(),
-    border = "double",
-    size = { width = 0.7, height = 0.7 },
-    title = "Terminal " .. Util.root(),
-  })
-end
-vim.keymap.del("n", "<leader>ft")
-vim.keymap.del("n", "<c-/>")
+map("n", "gh", vim.lsp.buf.hover, { desc = "Hover" })
 
-map("n", "<leader>ft", lazyterm, { desc = "Open Terminal" })
-map("n", "<c-/>", lazyterm, { desc = "Open Terminal" })
+-- Terminal
+
+map("n", "<c-_>", function()
+  Snacks.terminal(nil, { cwd = LazyVim.root(), win = { position = "float" } })
+end, { desc = "Terminal (Root Dir)" })
+
+map("n", "<c-_>", function()
+  Snacks.terminal(nil, { cwd = LazyVim.root(), win = { position = "float" } })
+end, { desc = "which_key_ignore" })
 
 -- del("n", "<leader>wd")
 -- map("n", "<leader>wc", "<C-W>c", { desc = "Delete window", remap = true })
@@ -31,7 +29,8 @@ map("n", "<c-/>", lazyterm, { desc = "Open Terminal" })
 -- map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 
 -- normal keymaps
-map({ "n", "s", "x" }, "<Leader>ww", "<cmd>w<cr><esc>", { desc = "Save file" })
+-- del({ "n", "s", "x" }, "<Leader>ww")
+map("n", "<Leader>ww", "<cmd>w<cr><esc>", { desc = "Save file" })
 map("n", "<leader>k", vim.lsp.buf.hover, { desc = "hover info on cursor" })
 map("n", "<leader>uu", ":w<CR>")
 
@@ -61,3 +60,25 @@ vim.keymap.set("v", "<c-j>", cliff.go_down, opts)
 vim.keymap.set("v", "<c-k>", cliff.go_up, opts)
 vim.keymap.set("o", "<c-j>", cliff.go_down, opts)
 vim.keymap.set("o", "<c-k>", cliff.go_up, opts)
+
+vim.keymap.set("n", "<leader>rn", ":IncRename ")
+
+vim.keymap.set("n", "<leader>wl", "C-wv")
+
+-- diagnostic
+local diagnostic_goto = function(next, severity)
+  local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
+  severity = severity and vim.diagnostic.severity[severity] or nil
+  return function()
+    go({ severity = severity })
+  end
+end
+map("n", "<leader>cn", diagnostic_goto(true), { desc = "Next Diagnostic" })
+map("n", "<leader>ch", diagnostic_goto(false), { desc = "Prev Diagnostic" })
+
+map("n", "<leader-w>", "<cmd>w<cr><esc>")
+
+vim.keymap.set("n", "<leader>yf", function()
+  vim.fn.setreg("+", vim.fn.expand("%"))
+  print("Copied relative path: " .. vim.fn.expand("%"))
+end, { noremap = true, silent = true })

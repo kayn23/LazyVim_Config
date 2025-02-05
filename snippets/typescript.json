@@ -1,0 +1,11 @@
+{
+  "describe for vue component": {
+    "prefix": "vdesc",
+    "body": [
+      "import type { VueWrapper } from '@vue/test-utils';\n",
+      "let wrapper: VueWrapper, vm: any;\n",
+      "function factory() {}\n",
+      "describe('$1', () => {$2});"
+    ]
+  }
+}

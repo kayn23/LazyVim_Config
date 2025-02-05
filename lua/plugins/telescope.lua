@@ -20,13 +20,13 @@ return {
         end,
         desc = "Find Plugin File",
       },
-      {
-        "<leader>fn",
-        function()
-          require("telescope").extensions.notify.notify()
-        end,
-        desc = "Show notify history",
-      },
+      -- {
+      --   "<leader>fn",
+      --   function()
+      --     require("telescope").extensions.notify.notify()
+      --   end,
+      --   desc = "Show notify history",
+      -- },
     },
     -- change some options
     opts = {

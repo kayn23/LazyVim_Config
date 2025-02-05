@@ -8,10 +8,18 @@
       "<template>",
       "\t$2",
       "</template>",
-      "<style lang=\"sass\">",
+      "<style lang=\"scss\">",
       "\t$3",
       "</style>"
     ],
     "description": "Vue3 ts base template"
+  },
+  "defineProps": {
+    "prefix": "defp",
+    "body": ["const props = defineProps<{$1}>()"]
+  },
+  "defineEmits": {
+    "prefix": "defe",
+    "body": ["interface IEmits {$1}\t", "const emit = defineEmits<IEmits>()"]
   }
 }
