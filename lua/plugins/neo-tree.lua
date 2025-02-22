@@ -28,7 +28,7 @@ return {
     nesting_rules = {
       ["vue"] = {
         pattern = "(.*)%.vue$",
-        files = { "%1.spec.ts" },
+        files = { "%1.spec.ts", "%1.stub.ts" },
       },
       ["ts"] = {
         pattern = "(.*)%.ts$",

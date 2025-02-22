@@ -12,8 +12,15 @@ return {
       -- colorscheme = "solarized-osaka",
       -- colorscheme = "tokyonight",
       -- colorscheme = "kanagawa-paper",
-      colorscheme = "material",
+      -- colorscheme = "material",
       -- colorscheme = "miasma",
+      colorscheme = "onedark",
+    },
+  },
+  {
+    "navarasu/onedark.nvim",
+    opts = {
+      colorscheme = "warm",
     },
   },
   {
