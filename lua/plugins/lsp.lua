@@ -6,5 +6,16 @@ return {
         opts.filetypes = { "css", "scss", "less", "sass" }
       end,
     },
+    servers = {
+      gopls = {
+        settings = {
+          gopls = {
+            usePlaceholders = false, -- Отключает автодобавление аргументов функций
+            completeUnimported = true,
+            staticcheck = true,
+          },
+        },
+      },
+    },
   },
 }

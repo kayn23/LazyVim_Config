@@ -26,8 +26,5 @@ return {
   {
     "xero/miasma.nvim",
   },
-  {
-    "thesimonho/kanagawa-paper.nvim",
-  },
   { "marko-cerovac/material.nvim" },
 }
