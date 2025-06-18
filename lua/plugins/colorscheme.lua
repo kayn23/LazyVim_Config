@@ -23,8 +23,4 @@ return {
       colorscheme = "warm",
     },
   },
-  {
-    "xero/miasma.nvim",
-  },
-  { "marko-cerovac/material.nvim" },
 }

@@ -7,5 +7,13 @@
       "function factory() {}\n",
       "describe('$1', () => {$2});"
     ]
+  },
+  "it snapshot": {
+    "prefix": "its",
+    "body": ["it.snapshotsHtml(() => wrapper);"]
+  },
+  "before each jest": {
+    "prefix": "beb",
+    "body": ["beforeEach(() => {", "$1", "})"]
   }
 }

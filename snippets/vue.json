@@ -5,9 +5,11 @@
       "<script lang=\"ts\" setup>",
       "\t$1",
       "</script>",
-      "<template>",
+      "",
+      "<template lang=\"pug\">",
       "\t$2",
       "</template>",
+      "",
       "<style lang=\"scss\">",
       "\t$3",
       "</style>"
@@ -20,6 +22,6 @@
   },
   "defineEmits": {
     "prefix": "defe",
-    "body": ["interface IEmits {$1}\t", "const emit = defineEmits<IEmits>()"]
+    "body": ["const emits = defineEmits<{$1}>()"]
   }
 }

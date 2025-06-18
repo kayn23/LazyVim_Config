@@ -13,8 +13,14 @@ return {
             usePlaceholders = false, -- Отключает автодобавление аргументов функций
             completeUnimported = true,
             staticcheck = true,
+            hints = {
+              parameterNames = false,
+            },
           },
         },
+      },
+      ruby_lsp = {
+        filetypes = { "ruby", "eruby", "rake", "jbuilder" },
       },
     },
   },

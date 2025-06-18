@@ -3,3 +3,9 @@
 -- Add any additional options here
 vim.opt.relativenumber = false
 vim.g.material_style = "palenight"
+
+vim.filetype.add({
+  extension = {
+    jbuilder = "ruby",
+  },
+})

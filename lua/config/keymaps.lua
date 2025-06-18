@@ -18,6 +18,10 @@ map("n", "<c-_>", function()
   Snacks.terminal(nil, { cwd = LazyVim.root(), win = { position = "float" } })
 end, { desc = "Terminal (Root Dir)" })
 
+map("n", "<a_>", function()
+  Snacks.terminal(nil, { cwd = LazyVim.root(), win = { position = "float" } })
+end, { desc = "Terminal (Root Dir)" })
+
 map("n", "<c-_>", function()
   Snacks.terminal(nil, { cwd = LazyVim.root(), win = { position = "float" } })
 end, { desc = "which_key_ignore" })
